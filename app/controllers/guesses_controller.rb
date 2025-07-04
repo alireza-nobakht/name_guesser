@@ -1,9 +1,16 @@
+# frozen_string_literal: true
 
 class GuessesController < ApplicationController
   def show
-    # This action will render the view for the country guess game.
-    # You can add any logic here if needed, such as initializing variables.
+    name = name_param
+    render json: GuessCountry.new(name).call
+  rescue ActionController::ParameterMissing => e
+    render json: { error: e.message }, status: :bad_request
+  end
 
-    # For example, you might want to set a random country for the user to guess:
+  private
+
+  def name_param
+    params.require(:name)
   end
 end

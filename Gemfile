@@ -38,7 +38,9 @@ gem "thruster", require: false
 
 # IOC container for dependency injection [https://dry-rb.org/gems/dry-container/]
 gem "dry-container"
-gem "dry-auto_inject"
+
+# http client for making API requests
+gem "httparty"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -49,4 +51,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "byebug"
+
+  gem "rspec-rails"
+
+  gem "webmock"
 end
